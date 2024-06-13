@@ -1,10 +1,12 @@
 package shop.mtcoding.bank.user;
 
 import jakarta.servlet.http.HttpSession;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @RequiredArgsConstructor
 @Controller
@@ -12,6 +14,11 @@ public class UserController {
 
     private final HttpSession session;
     private final UserService userService;
+
+    @GetMapping("/redis/test")
+    public @ResponseBody String redisTest(){
+        return "redis test";
+    }
 
     @GetMapping("/home")
     public String home(){
